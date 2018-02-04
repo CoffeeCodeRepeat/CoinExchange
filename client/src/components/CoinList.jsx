@@ -5,6 +5,7 @@ import Coin from './Coin.jsx';
 const CoinList = props => (
   <div className="coinList">
     <ul>
+      <li className="favorite-button"></li>
       <li>Rank</li>
       <li>Name</li>
       <li>Price</li>

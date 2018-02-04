@@ -4,6 +4,11 @@ ul li {
 }
 
 li {
-  padding-left: 30px;
-  padding-right: 30px;
+  width: 10%;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.favorite-button {
+  width: 3%;
 }
