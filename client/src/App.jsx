@@ -8,7 +8,6 @@ class App extends Component {
     super();
     this.state = {
       coinList: [],
-      cloneCoinList:[],
       favoriteList: {},
     }
   };
@@ -41,23 +40,26 @@ class App extends Component {
   }
 
   sortRank = () => {
-    let list = this.state.cloneCoinList;
-    let temp = this.state.cloneCoinList;
-    for (let i = 0, k= list.length - 1; i < list.length/2; i++, k-- ) {
-      let temp = list[i];
-      list[i] = list[k];
-      list[k] = temp;
-    };
+    let list = this.state.coinList;
+    if (this.state.coinList[0].rank === '1' ) {
+      list.sort((a,b) => {
+        return b.rank - a.rank;
+      })
+    } else {
+      list.sort((a, b) => {
+        return a.rank - b.rank;
+      })
+    }
     this.setState({
-      coinList: list,
-      cloneCoinList: temp
+      coinList: list
     });
+
   }
 
   sortName = () => {
     let list = this.state.coinList.sort((a,b) => {
-      var nameA = a.name.toUpperCase(); // ignore upper and lowercase
-      var nameB = b.name.toUpperCase(); // ignore upper and lowercase
+      let nameA = a.name.toUpperCase(); // ignore upper and lowercase
+      let nameB = b.name.toUpperCase(); // ignore upper and lowercase
       if (nameA < nameB) {
         return -1;
       }
@@ -71,6 +73,22 @@ class App extends Component {
     });
   }
 
+  sortNumber =() => {
+    let list = this.state.coinList
+    if (this.state.coinList[0].price_usd === '1') {
+      list.sort((a, b) => {
+        return b.price_usd - a.price_usd;
+      })
+    } else {
+      list.sort((a, b) => {
+        return a.price_usd - b.price_usd;
+      })
+    }
+    this.setState({
+      coinList: list
+    })
+  }
+
   render() {
     return (
       <div className="App">
@@ -81,7 +99,7 @@ class App extends Component {
           {this.state.response}
         </p>
         <FavoriteList favoriteList={this.state.favoriteList} removeFavorite={this.removeFavorite} />
-        <CoinList sortRank={this.sortRank} sortName={this.sortName} coinList={this.state.coinList} addFavorite={this.addFavorite} />
+        <CoinList sortRank={this.sortRank} sortName={this.sortName} sortNumber={this.sortNumber} coinList={this.state.coinList} addFavorite={this.addFavorite} />
       </div>
     );
   }
