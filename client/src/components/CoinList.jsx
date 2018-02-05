@@ -6,11 +6,11 @@ const CoinList = props => (
   <div className="coinList">
     <ul>
       <li className="favorite-button"></li>
-      <li>Rank</li>
-      <li>Name</li>
-      <li>Price</li>
-      <li>BTC Price</li>
-      <li>Change (24H)</li>
+      <li><button onClick={props.sortRank}>Rank</button></li>
+      <li><button onClick={props.sortName}>Name</button></li>
+      <li><button onClick={props.sortName}>Price</button></li>
+      <li><button>BTC Price</button></li>
+      <li><button>Change (24H)</button></li>
     </ul>
     {props.coinList.map(coin => (
       <Coin
