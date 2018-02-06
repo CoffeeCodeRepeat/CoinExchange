@@ -9,6 +9,7 @@ class App extends Component {
     this.state = {
       coinList: [],
       favoriteList: {},
+      nameSorted: false,
     }
   };
 
@@ -51,7 +52,8 @@ class App extends Component {
       })
     }
     this.setState({
-      coinList: list
+      coinList: list,
+      nameSorted: false,
     });
 
   }
@@ -60,16 +62,29 @@ class App extends Component {
     let list = this.state.coinList.sort((a,b) => {
       let nameA = a.name.toUpperCase(); // ignore upper and lowercase
       let nameB = b.name.toUpperCase(); // ignore upper and lowercase
-      if (nameA < nameB) {
-        return -1;
+      if (!this.state.nameSorted) {
+        console.log('first');
+        if (nameA < nameB) {
+          return -1;
+        }
+        if (nameA > nameB) {
+          return 1;
+        }
+        return 0;
+      } else {
+        console.log('second');
+        if (nameA < nameB) {
+          return 1;
+        }
+        if (nameA > nameB) {
+          return -1;
+        }
+        return 0;
       }
-      if (nameA > nameB) {
-        return 1;
-      }
-      return 0;
     });
     this.setState({
-      coinList: list
+      coinList: list,
+      nameSorted: !this.setState.nameSorted,
     });
   }
 

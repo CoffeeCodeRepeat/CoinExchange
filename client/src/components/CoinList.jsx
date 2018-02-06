@@ -8,7 +8,7 @@ const CoinList = props => (
       <li className="favorite-button"></li>
       <li><button onClick={props.sortRank}>Rank</button></li>
       <li><button onClick={props.sortName}>Name</button></li>
-      <li><button onClick={props.sortRank}>Price</button></li>
+      <li><button onClick={props.sortNumber}>Price</button></li>
       <li><button>BTC Price</button></li>
       <li><button>Change (24H)</button></li>
     </ul>
