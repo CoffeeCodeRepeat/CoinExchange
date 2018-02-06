@@ -1,9 +1,43 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+
 ul li {
   list-style: none;
   display: inline-block;
 }
 
+h1 {
+  font-family: "Roboto";
+  font-size: 200%;
+  text-align: center;
+}
+
+button {
+  font-family: "Roboto";
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+button:hover {
+  color: grey;
+}
+
 li {
-  padding-left: 30px;
-  padding-right: 30px;
+  font-family: "Roboto";
+  width: 10%;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.favorite-button {
+  width: 3%;
+}
+
+.positive {
+  color: green;
+}
+
+.negative {
+  color: red;
 }

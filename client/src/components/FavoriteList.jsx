@@ -10,7 +10,7 @@ const FavoriteList = (props) => {
         <Coin
           coin={favoriteList[id]}
           removeFavorite={removeFavorite}
-          favorite={false}
+          favorite={true}
           key={id}
         />
       ))}
