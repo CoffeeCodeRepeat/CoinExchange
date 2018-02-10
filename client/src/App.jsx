@@ -91,15 +91,15 @@ class App extends Component {
     });
   }
 
-  sortNumber =() => {
+  sortNumber =(column) => {
     let list = this.state.coinList
     if (!this.state.numberSorted) {
       list.sort((a, b) => {
-        return b.price_usd - a.price_usd;
+        return b[column] - a[column];
       })
     } else {
       list.sort((a, b) => {
-        return a.price_usd - b.price_usd;
+        return a[column] - b[column];
       })
     }
     this.setState({
